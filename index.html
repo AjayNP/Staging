@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>Fateh Retreat</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,400" rel="stylesheet">
+
+<style>
+    *{margin: 0; padding: 0}
+   #theatre {
+    height: calc(100vh - 228px);
+    width: calc(100% - 200px);
+    margin: 0px auto 60px;
+    text-align: center;
+    font-size: 30px;
+    position: relative;
+    overflow: hidden;
+    background: url(assets/images/banner.jpg);
+    color: rgba(255,255,255, 1);
+    font-family: Raleway;
+    font-weight: 200;
+    font-size: 50px;
+    background-size: cover
+    
+    
+}
+
+#theatre #curtain-left, #theatre #curtain-right {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: -30px;
+    bottom: -30px;
+    width: 60%;
+    transition: all 2s ease-out;
+    transform: rotate(0deg);
+    
+    
+    
+    
+background: -moz-linear-gradient(top, rgba(186,154,66,0.8) 0%, rgba(164,136,58,0.8) 35%, rgba(154,127,54,0.8) 68%, rgba(154,127,54,0.8) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(186,154,66,0.8) 0%,rgba(164,136,58,0.8) 35%,rgba(154,127,54,0.8) 68%,rgba(154,127,54,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(186,154,66,0.8) 0%,rgba(164,136,58,0.8) 35%,rgba(154,127,54,0.8) 68%,rgba(154,127,54,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccba9a42', endColorstr='#cc9a7f36',GradientType=0 ); /* IE6-9 */
+}
+
+#curtain-left { left: -10% }
+
+#curtain-right { right: -10% }
+
+#theatre.open #curtain-right, #theatre.open #curtain-left {
+    width: 0;
+    background-size: 1px;
+    transition: all 2s ease;
+    transform: rotate(6deg);
+}
+
+div#theatre.open #curtain-right {
+    transition: all 2s ease;
+    transform: rotate(-6deg);
+}
+
+#theatre p {
+    width: 100%;
+    vertical-align: middle;
+    margin: 10px auto;
+    position: relative;
+    z-index: 3;
+    position: absolute; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeInText 2s
+
+}
+
+#theatre p:first-of-type:before {
+    content: '';
+    position: absolute;
+    border-radius: 150px;
+     height: 0.1px;
+    width: 3px;
+    top: 6.5em;
+    left: 49%;
+    transform: rotate(25deg) skew(15deg,5deg);
+}
+    header{text-align: center; padding: 25px 0}
+    .mouse{text-align: center;position: relative;}
+    .mouse a{display: inline-block; -webkit-animation: mymove 3s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 3s infinite;}
+    .mouse:before{position: absolute; content: ''; width: 1px; height: 80px; background: #997e4c; top: -90px; left: 50%; margin-left: -1px;}
+    .coming-soon{
+    position: absolute; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);animation: fadeInText 2s}
+    
+    .coming-soon h1{font-size: 50px; font-family: Raleway; font-weight: 200; line-height: 1.2}
+    .coming-soon span{display: block;font-family: Raleway; font-weight: 200; font-size: 22px; line-height: 1.2}
+    
+  
+ 
+    
+@-webkit-keyframes mymove {
+    0%   {margin-top: -7px}
+    50%  {margin-top: 14px}
+    100% {margin-top: -7px;}
+    
+}
+
+/* Standard syntax */
+@keyframes mymove {
+    0%   {margin-top: -7px}
+    50%  {margin-top: 14px}
+    100% {margin-top: -7px;}
+    
+}
+@keyframes fadeInText {
+   0% {opacity: 0;}
+   100% {opacity: 1;}
+} 
+</style>
+</head>
+<body>
+   <header><a href="#"><img src="assets/images/logo.png"></a></header>
+    <div id="theatre">
+	<em id="curtain-left"></em>
+	<em id="curtain-right"></em>
+	<p class="curtain-text">A beautiful garden<br/>on the edges of the forest,<br/>where tigers roam</p>
+	<div class="coming-soon">
+	    <h1>FATEH’S RETREAT<span>Bed &amp; Breakfast</span></h1>
+	    <img src="assets/images/launch-btn.png" width="250px">
+	    
+	</div>
+	
+</div>
+<div class="mouse"><a href="javascript:void(0);"><img src="assets/images/mouse-icon.png"></a></div>
+<script src="https://raw.github.com/LeaVerou/prefixfree/gh-pages/prefixfree.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+    $(document).ready(function(e){
+        $('.coming-soon').fadeOut();
+        $('.mouse a').click(function(e){
+           $('#theatre').toggleClass('open');
+           $('.curtain-text').fadeToggle();
+           $('.coming-soon').fadeToggle();
+           
+        })
+        
+        $('#theatre').mouseenter(function(e){
+           $('#theatre').addClass('open');
+           $('.curtain-text').fadeToggle();
+           $('.coming-soon').fadeToggle();
+        })
+        $('#theatre').mouseleave(function(e){
+           $('#theatre').removeClass('open');
+           $('.curtain-text').fadeToggle();
+           $('.coming-soon').fadeToggle();
+        })
+        
+    })
+</script>
+</body>
+</html>
